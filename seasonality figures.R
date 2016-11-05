@@ -19,3 +19,5 @@ seasonality <-
   ggtitle("seagrass biomass")
 
 seasonality
+
+### ok, this will work to visualize the patterns. next step, try to get our (and others?) seasonal data into a figure...
