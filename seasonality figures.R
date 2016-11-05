@@ -93,6 +93,7 @@ PB.fig <-
 
 PB.fig
 
+
 ## all figs at once
 all <- plot_grid(GWI.fig,TW.fig, SF.fig, PB.fig, SJI.fig, nrow = 3, ncol = 2)
 
