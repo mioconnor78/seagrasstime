@@ -3,6 +3,8 @@
 library(readr)
 library(tidyverse)
 library(ggplot2)
+library(gridExtra)
+library(cowplot)
 
 
 data <- read_csv("sg.seasonality.data.csv")
@@ -56,12 +58,44 @@ SF <- data %>%
 SF.fig <-
   ggplot(SF, aes(x = month, y = relative.value), group_by(variable)) +
   theme_minimal() +
-  scale_x_continuous(breaks = TW$month) +
+  scale_x_continuous(breaks = SF$month) +
   geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
   geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
   ggtitle("San Francisco - KB 2007")
 
 SF.fig
 
+
+SJI <- data %>%
+  filter(., site == "San Juan Islands") 
+
+SJI.fig <-
+  ggplot(SJI, aes(x = month, y = relative.value), group_by(variable)) +
+  theme_minimal() +
+  scale_x_continuous(breaks = SJI$month) +
+  geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
+  geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
+  ggtitle("San Juan Islands")
+
+SJI.fig
+
+
+PB <- data %>%
+  filter(., site == "Padilla Bay") 
+
+PB.fig <-
+  ggplot(PB, aes(x = month, y = relative.value), group_by(variable)) +
+  theme_minimal() +
+  scale_x_continuous(breaks = PB$month) +
+  geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
+  geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
+  ggtitle("Padilla Bay")
+
+PB.fig
+
+## all figs at once
+all <- plot_grid(GWI.fig,TW.fig, SF.fig, PB.fig, SJI.fig, nrow = 3, ncol = 2)
+
+cowplot::ggsave("allsites.jpg", plot = all)
 
 ### ok, this will work to visualize the patterns. next step, try to get our (and others?) seasonal data into a figure...
