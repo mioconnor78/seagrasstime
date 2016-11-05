@@ -1,0 +1,15 @@
+README for seagrass time project
+
+Datafile: sg.seasonality.data.csv
+- columns: 
+month: month numbers 1 - 12
+
+relative.value: on a scale of 1 - 10, the relative value of the response variable for each month for which there are measurements. Missing values = NA. to determine this value, standardize each month's value of the response variable to the maximum observed monthly value (max = 10). 
+
+variable: group to responses of seagrass standing biomass or density, epiphyte biomass, grazer density or biomass, fish abundance, etc.
+
+site: site
+
+reference: paper from which data came
+
+we should probably add columns for lat, long, etc. when we start comparing among sites.
