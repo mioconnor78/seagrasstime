@@ -267,30 +267,30 @@ month,relative.value,variable,site,ref,year.start,year.end,trophic.grp,notes,dat
 10,1,seagrass shoot biomass,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
 11,1,seagrass shoot biomass,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
 12,1,seagrass shoot biomass,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-1,5,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-2,1,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-3,1,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-4,3,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-5,6,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-6,5,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-7,7,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-8,8,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-9,10,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-10,8,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-11,5,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-12,1,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-1,1,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-2,1,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-3,1.5,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-4,2,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-5,4,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-6,6,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-7,8,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-8,7,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-9,8.5,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-10,10,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-11,10,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
-12,3,fish density,"Beaufort, NC",Adams,1971,1972,seagrass,2 of 2 sites,EA
+1,5,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+2,1,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+3,1,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+4,3,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+5,6,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+6,5,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+7,7,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+8,8,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+9,10,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+10,8,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+11,5,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+12,1,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+1,1,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+2,1,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+3,1.5,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+4,2,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+5,4,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+6,6,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+7,8,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+8,7,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+9,8.5,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+10,10,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+11,10,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
+12,3,fish density,"Beaufort, NC",Adams,1971,1972,predator,2 of 2 sites,EA
 5,8,shoot density," Masnedo Island, Denmark",Bach,1988,1988,seagrass,,EA
 6,1,shoot density," Masnedo Island, Denmark",Bach,1988,1988,seagrass,,EA
 7,8,shoot density," Masnedo Island, Denmark",Bach,1988,1988,seagrass,,EA
