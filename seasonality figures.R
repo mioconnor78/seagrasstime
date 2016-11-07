@@ -94,6 +94,26 @@ PB.fig <-
 PB.fig
 
 
+## Odawa Bay
+
+
+OB <- data %>%
+  filter(., site == "Odawa Bay, Japan") 
+View(OB)
+
+OB.fig <-
+  ggplot(OB, aes(x = month, y = relative.value), group_by(variable)) +
+  theme_minimal() +
+  scale_x_continuous(breaks = OB$month) +
+  geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
+  geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
+  ggtitle("Odawa Bay")
+
+OB.fig
+
+
+
+
 ## all figs at once
 all <- plot_grid(GWI.fig,TW.fig, SF.fig, PB.fig, SJI.fig, nrow = 3, ncol = 2)
 
