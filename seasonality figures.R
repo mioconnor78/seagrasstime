@@ -8,6 +8,7 @@ library(cowplot)
 
 
 data <- read_csv("sg.seasonality.data.csv")
+data$month <- as.numeric(data$month)
 head(data)
 View(data)
 
@@ -23,6 +24,8 @@ sbg.fig <-
 
 sbg.fig
 
+class(data$site)
+levels(unique(as.factor(data$site)))
 
 GWI <- data %>%
   filter(., site == "Goodwin Islands") 
@@ -108,8 +111,6 @@ CB.fig
 
 
 ## Odawa Bay
-
-
 OB <- data %>%
   filter(., site == "Odawa Bay, Japan") 
 View(OB)
@@ -125,6 +126,66 @@ OB.fig <-
 OB.fig
 
 
+## Bodega Bay
+BB <- data %>%
+  filter(., site == "Bodega Bay") 
+View(BB)
+
+BB.fig <-
+  ggplot(BB, aes(x = month, y = relative.value), group_by(variable)) +
+  theme_minimal() +
+  scale_x_continuous(breaks = BB$month) +
+  geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
+  geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
+  ggtitle("Bodega Bay")
+
+BB.fig
+
+## Roscoff, France
+RF <- data %>%
+  filter(., site == "Roscoff, France") 
+View(BB)
+
+RF.fig <-
+  ggplot(RF, aes(x = month, y = relative.value), group_by(variable)) +
+  theme_minimal() +
+  scale_x_continuous(breaks = RF$month) +
+  geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
+  geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
+  ggtitle("Roscoff France")
+
+RF.fig
+
+## Beaufort, NC
+NC <- data %>%
+  filter(., site == "Beaufort, NC") 
+View(NC)
+
+NC.fig <-
+  ggplot(NC, aes(x = month, y = relative.value), group_by(variable)) +
+  theme_minimal() +
+  scale_x_continuous(breaks = NC$month) +
+  geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
+  geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
+  ggtitle("Beaufort, NC")
+
+NC.fig
+
+
+## Akkeshi-ko Estuary
+AK <- data %>%
+  filter(., site == "Akkeshi-ko Estuary, Japan") 
+View(AK)
+
+AK.fig <-
+  ggplot(AK, aes(x = month, y = relative.value), group_by(variable)) +
+  theme_minimal() +
+  scale_x_continuous(breaks = AK$month) +
+  geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
+  geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
+  ggtitle("Akkeshi-ko")
+
+AK.fig
 
 
 ## all figs at once
