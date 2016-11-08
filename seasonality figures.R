@@ -188,6 +188,20 @@ AK.fig <-
 AK.fig
 
 
+OB <- data %>%
+  filter(., site == "Otsuchi Bay, Japan") 
+
+OB.fig <-
+  ggplot(OB, aes(x = month, y = relative.value), group_by(variable)) +
+  theme_minimal() +
+  scale_x_continuous(breaks = OB$month) +
+  geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
+  geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
+  ggtitle("Otsuchi Bay 1996")
+
+OB.fig
+
+
 ## all figs at once
 all <- plot_grid(GWI.fig,TW.fig, SF.fig, PB.fig, SJI.fig, CB.fig, nrow = 3, ncol = 2, scale = 0.9, label_size = 9, align = "v")
 
