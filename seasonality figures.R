@@ -5,9 +5,23 @@ library(tidyverse)
 library(ggplot2)
 library(gridExtra)
 library(cowplot)
+library(data.table)
+
+## add in missing months; only had to do this once for Best and Stachowicz data, and then replaced the main datafile.
+data <- read_csv("./older data/sg.seasonality.data.csv")
+vals <- data %>%
+  unite(ID, variable, site, sep = "/")
+
+vals1 <- as.data.table(vals)
+setkey(vals1, ID, month)
+vals2 <- as.data.frame(vals1[CJ(unique(ID), seq(min(month), max(month)))])
+data1 <- vals2 %>%
+  separate(ID, c("variable", "site"), sep = "/")
+write.csv(data1, "sg.seasonality.csv")
 
 
-data <- read_csv("sg.seasonality.data.csv")
+## load data
+data <- read_csv("sg.seasonality.csv")
 data$month <- as.numeric(data$month)
 head(data)
 View(data)
@@ -127,19 +141,121 @@ OB.fig
 
 
 ## Bodega Bay
-BB <- data %>%
-  filter(., site == "Bodega Bay") 
-View(BB)
+BB.GA <- data %>%
+  filter(., site == "BodegaHarbor_bed_GA") %>%
+  filter(., variable != "Zost_Flowering_biomass") %>%
+  filter(., variable != "Zost_Flowering_Shoots") %>%
+  filter(., variable != "Zost_Total_Shoots") %>%
+  filter(., variable != "Zost_Veg_biomass") %>%
+  filter(., variable != "Zost_Veg_Shoots") %>%
+  filter(., variable != "Ulva_biomass") %>%
+  filter(., variable != "Macrophyte_consumers")
+View(BB.GA)
 
-BB.fig <-
-  ggplot(BB, aes(x = month, y = relative.value), group_by(variable)) +
+BB.GA.fig <-
+  ggplot(BB.GA, aes(x = month, y = relative.value), group_by(variable)) +
   theme_minimal() +
-  scale_x_continuous(breaks = BB$month) +
+  scale_x_continuous(breaks = BB.GA$month) +
   geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
   geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
-  ggtitle("Bodega Bay")
+  ggtitle("Bodega Bay GA")
 
-BB.fig
+BB.GA.fig
+
+
+BB.GD <- data %>%
+  filter(., site == "BodegaHarbor_bed_GD") %>%
+  filter(., variable != "Zost_Flowering_biomass") %>%
+  filter(., variable != "Zost_Flowering_Shoots") %>%
+  filter(., variable != "Zost_Total_Shoots") %>%
+  filter(., variable != "Zost_Veg_biomass") %>%
+  filter(., variable != "Zost_Veg_Shoots") %>%
+  filter(., variable != "Ulva_biomass") %>%
+  filter(., variable != "Macrophyte_consumers")
+View(BB.GA)
+
+BB.GD.fig <-
+  ggplot(BB.GD, aes(x = month, y = relative.value), group_by(variable)) +
+  theme_minimal() +
+  scale_x_continuous(breaks = BB.GD$month) +
+  geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
+  geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
+  ggtitle("Bodega Bay GD")
+
+BB.GD.fig
+
+
+BB.GG <- data %>%
+  filter(., site == "BodegaHarbor_bed_GG") %>%
+  filter(., variable != "Zost_Flowering_biomass") %>%
+  filter(., variable != "Zost_Flowering_Shoots") %>%
+  filter(., variable != "Zost_Total_Shoots") %>%
+  filter(., variable != "Zost_Veg_biomass") %>%
+  filter(., variable != "Zost_Veg_Shoots") %>%
+  filter(., variable != "Ulva_biomass") %>%
+  filter(., variable != "Macrophyte_consumers")
+View(BB.GG)
+
+BB.GG.fig <-
+  ggplot(BB.GG, aes(x = month, y = relative.value), group_by(variable)) +
+  theme_minimal() +
+  scale_x_continuous(breaks = BB.GG$month) +
+  geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
+  geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
+  ggtitle("Bodega Bay GG")
+
+BB.GG.fig
+
+
+BB.GB <- data %>%
+  filter(., site == "BodegaHarbor_bed_GB") %>%
+  filter(., variable != "Zost_Flowering_biomass") %>%
+  filter(., variable != "Zost_Flowering_Shoots") %>%
+  filter(., variable != "Zost_Total_Shoots") %>%
+  filter(., variable != "Zost_Veg_biomass") %>%
+  filter(., variable != "Zost_Veg_Shoots") %>%
+  filter(., variable != "Ulva_biomass") %>%
+  filter(., variable != "Macrophyte_consumers")
+View(BB.GB)
+
+BB.GB.fig <-
+  ggplot(BB.GB, aes(x = month, y = relative.value), group_by(variable)) +
+  theme_minimal() +
+  scale_x_continuous(breaks = BB.GB$month) +
+  geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
+  geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
+  ggtitle("Bodega Bay GB")
+
+BB.GB.fig
+
+BB.GF <- data %>%
+  filter(., site == "BodegaHarbor_bed_GF") %>%
+  filter(., variable != "Zost_Flowering_biomass") %>%
+  filter(., variable != "Zost_Flowering_Shoots") %>%
+  filter(., variable != "Zost_Total_Shoots") %>%
+  filter(., variable != "Zost_Veg_biomass") %>%
+  filter(., variable != "Zost_Veg_Shoots") %>%
+  filter(., variable != "Ulva_biomass") %>%
+  filter(., variable != "Macrophyte_consumers")
+View(BB.GF)
+
+BB.GF.fig <-
+  ggplot(BB.GF, aes(x = month, y = relative.value), group_by(variable)) +
+  theme_minimal() +
+  scale_x_continuous(breaks = BB.GF$month) +
+  geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
+  geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
+  ggtitle("Bodega Bay GF")
+
+BB.GF.fig
+
+## all Bodega figs at once
+theme_set(theme_cowplot(font_size = 10))
+BB.all <- plot_grid(BB.GA.fig, BB.GB.fig, BB.GD.fig, BB.GG.fig, BB.GF.fig, nrow = 3, ncol = 2, scale = 0.9, label_size = 9, align = "v")
+
+ggsave("BB.all.jpg", plot = BB.all, width = 10, height = 6)
+
+BB.all
 
 ## Roscoff, France
 RF <- data %>%
