@@ -200,11 +200,12 @@ OB.fig <-
   ggtitle("Otsuchi Bay 1996")
 
 OB.fig
-
+ggsave("OB.jpg", OB.fig)
 
 ## all figs at once
-all <- plot_grid(GWI.fig,TW.fig, SF.fig, PB.fig, SJI.fig, CB.fig, nrow = 3, ncol = 2, scale = 0.9, label_size = 9, align = "v")
+all <- plot_grid(GWI.fig,TW.fig, SF.fig, CB.fig, OB.fig, nrow = 3, ncol = 2, scale = 0.9, label_size = 9, align = "v")
 
 cowplot::ggsave("allsites.jpg", plot = all, width = 8, height = 10)
+
 
 ### ok, this will work to visualize the patterns. next step, try to get our (and others?) seasonal data into a figure...
