@@ -45,14 +45,16 @@ GWI <- data %>%
   filter(., site == "Goodwin Islands") 
 
 GWI.fig <-
-  ggplot(GWI, aes(x = month, y = relative.value), group_by(variable)) +
+  ggplot(GWI, aes(x = month, y = relative.value), group_by(trophic.grp)) +
   theme_minimal() +
   scale_x_continuous(breaks = GWI$month) +
-  geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
-  geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE) +
+  geom_jitter(aes(x = month, y = relative.value, color = trophic.grp), na.rm = TRUE) +
+  geom_smooth(aes(x = month, y = relative.value, color = trophic.grp), se = FALSE) +
   ggtitle("Goodwin Islands")
 
 GWI.fig
+
+ggsave("GWItrophic.jpg", GWI.fig)
 
 
 TW <- data %>%
@@ -67,6 +69,7 @@ TW.fig <-
   ggtitle("Tsawsassen BC 2012")
 
 TW.fig
+ggsave("TWFig.jpg", TW.fig)
 
 
 SF <- data %>%
@@ -81,7 +84,7 @@ SF.fig <-
   ggtitle("San Francisco - KB 2007")
 
 SF.fig
-
+ggsave("SFFig.jpg", SF.fig)
 
 SJI <- data %>%
   filter(., site == "San Juan Islands") 
@@ -95,7 +98,7 @@ SJI.fig <-
   ggtitle("San Juan Islands")
 
 SJI.fig
-
+ggsave("SJIFig.jpg", SJI.fig)
 
 PB <- data %>%
   filter(., site == "Padilla Bay") 
@@ -122,7 +125,7 @@ CB.fig <-
   ggtitle("Crescent Beach")
 
 CB.fig
-
+ggsave("CBFig.jpg", CB.fig)
 
 ## Odawa Bay
 OB <- data %>%
