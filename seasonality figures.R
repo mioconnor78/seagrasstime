@@ -85,7 +85,7 @@ TW.fig <- figTL(TW) +
   ggtitle("Tsawsassen BC 2012")
 
 TW.fig
-ggsave("./figures/TWFig.jpg", TW.fig)
+ggsave("./figures/TWFig.jpg", TW.fig, width = 6, height = 3)
 
 #Willapa Bay ####
 WP <- data %>%
@@ -143,7 +143,7 @@ CB.fig <- figTL(CB) +
   ggtitle("Crescent Beach")
 
 CB.fig
-ggsave("./figures/CB.jpg", CB.fig)
+ggsave("./figures/CB.jpg", CB.fig, width = 6, height = 3)
 
 #Odawa Bay, Japan ####
 OB <- data %>%
