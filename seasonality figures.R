@@ -7,6 +7,7 @@ library(gridExtra)
 library(ggExtra)
 library(cowplot)
 library(data.table)
+library(lubridate)
 
 ## add in missing months; only had to do this once for Best and Stachowicz data, and then replaced the main datafile.
 data <- read_csv("./older data/sg.seasonality.data.csv")
@@ -86,6 +87,29 @@ TW.fig <- figTL(TW) +
 
 TW.fig
 ggsave("./figures/TWFig.jpg", TW.fig, width = 6, height = 3)
+
+
+TW2015 <- read_csv("./TWdata_zm.csv")
+TW2015 <- as.data.frame(TW2015)
+TW2015$date1 <- dmy(TW2015$date)
+TW2015a <- TW2015 %>%
+  dplyr::select(date1, zm_dry_wt) %>% 
+  tidyr::separate(date1, c("year", "month", "date")) 
+
+TW2015c <- (TW2015a)
+#TW2015c$month <- as.factor(TW2015c$month)
+#TW2015c$year <- as.factor(TW2015c$year)
+#TW2015c$zm_dry_wt <- as.numeric(TW2015c$year)
+
+View(TW2015c)
+
+TW2015b <- TW2015c %>% 
+  group_by(., month, year) %>% 
+  summarise(mean(zm_dry_wt, na.rm = TRUE)) 
+
+View(TW2015b)
+
+    
 
 #Willapa Bay ####
 WP <- data %>%
