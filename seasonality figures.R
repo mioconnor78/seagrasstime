@@ -34,7 +34,7 @@ fig <- function(x) ggplot(x, aes(x = month, y = relative.value), group_by(variab
   removeGrid() +
   ylab("Relative Value") +
   xlab("Month") +
-  scale_x_continuous(breaks = OB$month) +
+  scale_x_continuous(breaks = TW$month) +
   geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
   geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE)
 
@@ -43,7 +43,7 @@ figTL <- function(x) ggplot(x, aes(x = month, y = relative.value), group_by(trop
   removeGrid() +
   ylab("Relative Value") +
   xlab("Month") +
-  scale_x_continuous(breaks = OB$month) +
+  scale_x_continuous(breaks = TW$month) +
   geom_jitter(aes(x = month, y = relative.value, color = variable), na.rm = TRUE) +
   geom_smooth(aes(x = month, y = relative.value, color = variable), se = FALSE)
 
@@ -79,7 +79,7 @@ ggsave("GWItrophic.jpg", GWI.fig, scale = .8, width = 8, height = 6)
 
 #Tsawwassen####
 TW <- data %>%
-  filter(., site == "Tsawwassen") 
+  filter(., site == "Tsawwassen" & year.start == "2012") 
 
 TW.fig <- figTL(TW) +
   scale_color_manual(values = c("lightgreen","brown", "orange", "forest green","darkgreen"), name = "trophic group") +
@@ -89,11 +89,11 @@ TW.fig
 ggsave("./figures/TWFig.jpg", TW.fig, width = 6, height = 3)
 
 
-TW2015 <- read_csv("./TWdata_zm.csv")
+TW2015 <- read_csv("./TWdata_epi.csv")
 TW2015 <- as.data.frame(TW2015)
 TW2015$date1 <- dmy(TW2015$date)
 TW2015a <- TW2015 %>%
-  dplyr::select(date1, zm_dry_wt) %>% 
+  dplyr::select(date1, zm_dry_wt, epi_dry_wt) %>% 
   tidyr::separate(date1, c("year", "month", "date")) 
 
 TW2015c <- (TW2015a)
@@ -109,7 +109,20 @@ TW2015b <- TW2015c %>%
 
 View(TW2015b)
 
-    
+
+TW15 <- data %>%
+  filter(., site == "Tsawwassen" & year.start == "2015") 
+
+TW15.fig <- figTL(TW15) +
+  scale_color_manual(values = c("darkgreen"), name = "trophic group") +
+  ggtitle("Tsawsassen BC 2016")
+
+TW15.fig
+ggsave("./figures/TW16Fig.jpg", TW15.fig, width = 6, height = 3)
+
+
+
+
 
 #Willapa Bay ####
 WP <- data %>%
