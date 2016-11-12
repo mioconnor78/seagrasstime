@@ -69,13 +69,14 @@ GWI <- data %>%
 View(GWI)
 
 GWI.fig <- figTL(GWI) +
-  scale_color_manual(values = c("brown","lightgreen","blue","orange", "forest green", "gray"), name = "trophic group") +
-  ggtitle("Goodwin Islands")
+  theme(legend.position = c(.11, .78), legend.text=element_text(size=6)) +
+  scale_color_manual(values = c("brown","springgreen2","blue","orange", "forest green", "gray"), name = "") +
+  ggtitle("Goodwin Islands 2004-2009")
 
 GWI.fig
 
-ggsave("./figures/GWI.jpg", GWI.fig)
-ggsave("GWItrophic.jpg", GWI.fig, scale = .8, width = 8, height = 6)
+ggsave("./figures/GWI.jpg", GWI.fig, width = 7, height = 2.5)
+ggsave("GWItrophic.jpg", GWI.fig, width = 7, height = 2.5)
 
 #Tsawwassen####
 TW <- data %>%
@@ -131,10 +132,10 @@ ggsave("./figures/TW16Fig.jpg", TW15.fig, width = 7, height = 2.5)
 
 #Willapa Bay ####
 WP <- data %>%
-  filter(., site == "Willapa Bay") 
+  filter(., site == "Willapa Bay")
 
 WP.fig <- figTL(WP) +
-  theme(legend.position = c(.2, .85)) +
+  theme(legend.position = c(.11, .9)) +
   scale_color_manual(values = c("darkgoldenrod4", "springgreen2", "brown", "orange", "forest green"), name = "") +
   ggtitle("Willapa Bay 2011")
 
@@ -146,23 +147,26 @@ SF <- data %>%
   filter(., site == "San Francisco Bay - KB") #%>% View
 
 SF.fig <- figTL(SF) +
+  theme(legend.position = c(.15, .5)) +
   scale_color_manual(values = c("lightgreen","brown","forest green"), name = "trophic group") +
   ggtitle("San Francisco - KB 2007")
 
 SF.fig
-ggsave("./figures/SFFig.jpg", SF.fig)
+ggsave("./figures/SFFig.jpg", SF.fig, width = 7, height = 2.5)
 
 #San Jan Islands####
 SJI <- data %>%
-  filter(., site == "San Juan Islands") 
-View(SJI)
+  filter(., site == "San Juan Islands")
+  #filter(., variable != "productivity")
+#View(SJI)
 
 SJI.fig <- figTL(SJI) +
-  scale_color_manual(values = c("lightgreen","forest green", "seagreen", "brown"), name = "trophic group") +
-  ggtitle("San Juan Islands")
+  theme(legend.position = c(.16, .9)) +
+  scale_color_manual(values = c("springgreen2","blue", "forest green",  "brown"), name = "") +
+  ggtitle("San Juan Islands 1990")
 
 SJI.fig
-ggsave("./figures/SJI.jpg", SJI.fig)
+ggsave("./figures/SJI.jpg", SJI.fig, width = 7, height = 2.5)
 
 #Padilla Bay Fig#### just shoots and snails
 PB <- data %>%
@@ -178,12 +182,14 @@ ggsave("./figures/PB.jpg", PB.fig)
 
 #Crecent Beach, BC ####
 CB <- data %>%
-  filter(., site == "Crescent Beach BC") 
+  filter(., site == "Crescent Beach BC") %>%
+  filter(., variable != "epiphyte biomass")
+
 View(CB)
 
 CB.fig <- figTL(CB) +
   theme(legend.position = c(.9, .9)) +
-  scale_color_manual(values = c("blue", "springgreen2", "black", "brown"), name = "") +
+  scale_color_manual(values = c("blue", "black", "orange"), name = "") +
   ggtitle("Crescent Beach 2012")
 
 CB.fig
@@ -214,11 +220,12 @@ BB.GA <- data %>%
 View(BB.GA)
 
 BB.GA.fig <- figTL(BB.GA) +
-  scale_color_manual(values = c("brown", "lightgreen", "orange", "gray", "black", "forestgreen"), name = "trophic group") +
-  ggtitle("Bodega Bay GA")
+  theme(legend.position = c(.13, .8), legend.text=element_text(size=8)) +
+  scale_color_manual(values = c("brown", "lightgreen", "orange", "gray", "black", "forestgreen"), name = "") +
+  ggtitle("Bodega Harbor (GA) 2009")
 
 BB.GA.fig
-ggsave("./figures/BBGA.jpg", BB.GA.fig)
+ggsave("./figures/BBGA.jpg", BB.GA.fig, width = 7, height = 2.5)
 
 BB.GD <- data %>%
   filter(., site == "BodegaHarbor_bed_GD") %>%
@@ -352,16 +359,17 @@ ggsave("./figures/AK.jpg", AK.fig)
 
 # Otsuchi Bay, Japan ####
 OB <- data %>%
-  filter(., site == "Otsuchi Bay, Japan")  %>%
-  filter(., variable!= "gastropods")
+  filter(., site == "Otsuchi Bay, Japan")  #%>%
+  #filter(., variable!= "gastropods")
 
 OB.fig <- fig(OB) +
-  scale_color_manual(values = c("brown", "lightgreen", "forestgreen"), name = "trophic group") +
+  theme(legend.position = c(.9, .95), legend.text=element_text(size=6)) +
+  scale_color_manual(values = c("brown", "springgreen2","orange", "forestgreen"), name = "") +
   #scale_color_brewer(type = "qual", palette = "Set1") +
   ggtitle("Otsuchi Bay 1996")
 
 OB.fig
-ggsave("./figures/OB.jpg", OB.fig)
+ggsave("./figures/OB.jpg", OB.fig, width = 7, height = 2.5)
 
 #all figs at once ####
 all <- plot_grid(GWI.fig,TW.fig, SF.fig, CB.fig, OB.fig, nrow = 3, ncol = 2, scale = 0.9, label_size = 9, align = "v")
