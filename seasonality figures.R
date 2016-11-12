@@ -79,14 +79,18 @@ ggsave("GWItrophic.jpg", GWI.fig, scale = .8, width = 8, height = 6)
 
 #Tsawwassen####
 TW <- data %>%
-  filter(., site == "Tsawwassen" & year.start == "2012") 
+  filter(., site == "Tsawwassen" & year.start == "2012") %>%
+  filter(., variable != "shoot density")
+
+View(TW)
 
 TW.fig <- figTL(TW) +
-  scale_color_manual(values = c("lightgreen","brown", "orange", "forest green","darkgreen"), name = "trophic group") +
+  theme(legend.position = c(.9, .9)) +
+  scale_color_manual(values = c("springgreen2","brown", "orange", "forest green"), name = "") +
   ggtitle("Tsawsassen BC 2012")
 
 TW.fig
-ggsave("./figures/TWFig.jpg", TW.fig, width = 6, height = 3)
+ggsave("./figures/TWFig.jpg", TW.fig, width = 7, height = 2.5)
 
 
 TW2015 <- read_csv("./TWdata_epi.csv")
@@ -114,11 +118,12 @@ TW15 <- data %>%
   filter(., site == "Tsawwassen" & year.start == "2015") 
 
 TW15.fig <- figTL(TW15) +
-  scale_color_manual(values = c("darkgreen"), name = "trophic group") +
+  theme(legend.position = c(.9, .9)) +
+  scale_color_manual(values = c("springgreen2","darkgreen"), name = "") +
   ggtitle("Tsawsassen BC 2016")
 
 TW15.fig
-ggsave("./figures/TW16Fig.jpg", TW15.fig, width = 6, height = 3)
+ggsave("./figures/TW16Fig.jpg", TW15.fig, width = 7, height = 2.5)
 
 
 
@@ -129,11 +134,12 @@ WP <- data %>%
   filter(., site == "Willapa Bay") 
 
 WP.fig <- figTL(WP) +
-  scale_color_manual(values = c("darkgoldenrod4", "lightgreen","brown", "orange", "forest green"), name = "trophic group") +
+  theme(legend.position = c(.2, .85)) +
+  scale_color_manual(values = c("darkgoldenrod4", "springgreen2", "brown", "orange", "forest green"), name = "") +
   ggtitle("Willapa Bay 2011")
 
 WP.fig
-ggsave("./figures/WPFig.jpg", WP.fig)
+ggsave("./figures/WPFig.jpg", WP.fig, width = 7, height = 2.5)
 
 #San Franscisco Bay####
 SF <- data %>%
@@ -176,11 +182,12 @@ CB <- data %>%
 View(CB)
 
 CB.fig <- figTL(CB) +
-  scale_color_manual(values = c("blue", "lightgreen", "dark gray", "brown"), name = "trophic group") +
-  ggtitle("Crescent Beach")
+  theme(legend.position = c(.9, .9)) +
+  scale_color_manual(values = c("blue", "springgreen2", "black", "brown"), name = "") +
+  ggtitle("Crescent Beach 2012")
 
 CB.fig
-ggsave("./figures/CB.jpg", CB.fig, width = 6, height = 3)
+ggsave("./figures/CB.jpg", CB.fig, width = 7, height = 2.5)
 
 #Odawa Bay, Japan ####
 OB <- data %>%
